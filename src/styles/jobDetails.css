@@ -1,0 +1,58 @@
+.job-details-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  .job-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #eb1515;
+  }
+  
+  .company-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .job-meta {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #222;
+  }
+  
+  .job-description, .job-details {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #444;
+  }
+  
+  .apply-button {
+    display: block;
+    width: 200px;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 20px;
+    color: white;
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .apply-button.disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
