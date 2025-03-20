@@ -32,6 +32,19 @@ export const AppProvider = ({ children }) => {
     setUser(res.data.user);
   };
 
+  const googleLogin = async (googleToken) => {
+    try {
+      const res = await axios.post("http://localhost:5000/api/auth/google-login", { token: googleToken });
+
+      setToken(res.data.token);
+      localStorage.setItem("token", res.data.token);
+      setUser(res.data.user);
+    } catch (error) {
+      console.error("Google login error:", error.response?.data?.message || error.message);
+      alert("Google authentication failed");
+    }
+  };
+
     const updateProfile = async (updatedData) => {
       try {
         const res = await updateMyProfile(updatedData);
@@ -55,7 +68,7 @@ export const AppProvider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ user, login, logout, jobs, fetchJobs,updateProfile }}>
+    <AppContext.Provider value={{ user, googleLogin,login, logout, jobs, fetchJobs,updateProfile }}>
       {children}
     </AppContext.Provider>
   );
