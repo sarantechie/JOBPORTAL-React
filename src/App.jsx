@@ -10,6 +10,7 @@ import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
 import MyJobs from "./pages/MyJobs";
 import Profile from "./pages/Profile";
+import ApplicantDetails from "./components/ApplicantDetails";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/job/:id" element={<JobDetails />} />
           <Route path="/post-job" element={<PostJob />} />
           <Route path="/jobs" element={<MyJobs />} />
+          <Route path="/applicant/:id" element={<ApplicantDetails />} />
         </Routes>
       </Router>
       {/* <Footer /> */}
