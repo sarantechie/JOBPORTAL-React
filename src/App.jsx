@@ -26,7 +26,7 @@ function App() {
           <Route path="/jobs" element={<MyJobs />} />
         </Routes>
       </Router>
-      <Footer />
+      {/* <Footer /> */}
     </AppProvider>
   );
 }

@@ -107,4 +107,9 @@ export const getMyJobs = async () => {
   return res;
 };
 
+export const uploadResume = async(resume)=>{
+  const res = await api.post(`/auth/upload-resume`,resume);
+  return res;
+}
+
 
