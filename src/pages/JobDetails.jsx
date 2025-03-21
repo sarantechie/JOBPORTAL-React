@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { applicationStatus, applyForJob, fetchJob } from "../services/api";
 import AppContext from "../context/AppContext";
-import "../styles/JobDetails.css";
+import "../styles/jobDetails.css";
 import EmployerApplications from "../components/EmployerApplications";
 
 function JobDetails() {
