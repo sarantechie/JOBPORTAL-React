@@ -18,7 +18,8 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await registerUser(form)
+    await registerUser(form);
+     alert('Registration successful!');
     navigate("/login");
   };
 
@@ -29,7 +30,7 @@ function Register() {
         <input
           type="text"
           name="name"
-          placeholder="Full Name"
+          placeholder={form.role==="jobseeker"?"Full Name":"Company Name"}
           onChange={handleChange}
           required
         />

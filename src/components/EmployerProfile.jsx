@@ -1,9 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import AppContext from "../context/AppContext";
-
+import "../styles/Profile.css";
 const EmployerProfile = () => {
   const { user, updateProfile } = useContext(AppContext);
-  const [formData, setFormData] = useState(user || {});
   const [profile, setProfile] = useState({
     name: "",
     email: "",
@@ -12,83 +11,183 @@ const EmployerProfile = () => {
     companyWebsite: "",
     industry: "",
     address: "",
-    profilePicture: "",
+    logo: "",
   });
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [tempLogo, setTempLogo] = useState("");
+
   useEffect(() => {
-    setProfile(user);
-  }, []);
+    if (user) {
+      setProfile({
+        name: user.name || "",
+        email: user.email || "",
+        phone: user.phone || "",
+        companyName: user.companyName || "",
+        companyWebsite: user.companyWebsite || "",
+        industry: user.industry || "",
+        address: user.address || "",
+        logo: user.logo || "",
+      });
+    }
+  }, [user]);
+
+  const handleLogoClick = () => {
+    setTempLogo(profile.logo);
+    setIsPopupOpen(true);
+  };
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setTempLogo(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleSaveLogo = () => {
+    setProfile({ ...profile, logo: tempLogo });
+    setIsPopupOpen(false);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfile({ ...profile, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    updateProfile(profile);
+
+    if (!profile.name || !profile.email || !profile.phone) {
+      alert("Name, Email, and Phone are required.");
+      return;
+    }
+
+    try {
+      await updateProfile(profile);
+    } catch (error) {
+      alert("Failed to update profile. Please try again.");
+    }
   };
 
   if (!user) return <p>Loading...</p>;
 
   return (
-    <div>
-      <div className="container">
+    <div className="profile-container">
+      <div className="profile-header">
         <h2>Employer Profile</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            value={profile.name}
-            onChange={handleChange}
-            placeholder="Full Name"
-            required
+        <div className="profile-picture-container" onClick={handleLogoClick}>
+          <img
+            src={profile.logo || "https://via.placeholder.com/100"}
+            alt="Company Logo"
+            className="profile-picture"
           />
-          <input type="email" name="email" value={profile.email} readOnly />
-          <input
-            type="text"
-            name="phone"
-            value={profile.phone}
-            onChange={handleChange}
-            placeholder="Phone"
-          />
-          <input
-            type="text"
-            name="companyName"
-            value={profile.companyName}
-            onChange={handleChange}
-            placeholder="Company Name"
-          />
-          <input
-            type="text"
-            name="companyWebsite"
-            value={profile.companyWebsite}
-            onChange={handleChange}
-            placeholder="Company Website"
-          />
-          <input
-            type="text"
-            name="industry"
-            value={profile.industry}
-            onChange={handleChange}
-            placeholder="Industry"
-          />
-          <input
-            type="text"
-            name="address"
-            value={profile.address}
-            onChange={handleChange}
-            placeholder="Address"
-          />
-          <input
-            type="text"
-            name="profilePicture"
-            value={profile.profilePicture}
-            onChange={handleChange}
-            placeholder="Profile Picture URL"
-          />
-
-          <button type="submit">Update Profile</button>
-        </form>
+        </div>
       </div>
+
+      {isPopupOpen && (
+        <div className="profile-picture-popup">
+          <div className="popup-content">
+            <img
+              src={tempLogo || "https://via.placeholder.com/200"}
+              alt="Logo Preview"
+              className="popup-profile-picture"
+            />
+            <label htmlFor="logo-upload" className="edit-icon">
+              📎 Edit
+            </label>
+            <input
+              id="logo-upload"
+              type="file"
+              accept="image/*"
+              onChange={handleFileUpload}
+              style={{ display: "none" }}
+            />
+            <div className="popup-buttons">
+              <button onClick={handleSaveLogo}>Save</button>
+              <button onClick={handleClosePopup}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+    
+      <form className="profile-form" onSubmit={handleSubmit}>
+        <label>Full Name</label>
+        <input
+          type="text"
+          name="name"
+          value={profile.name}
+          onChange={handleChange}
+          placeholder="Full Name"
+          required
+        />
+
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          value={profile.email}
+          onChange={handleChange}
+          placeholder="Email"
+          readOnly
+        />
+
+        <label>Phone</label>
+        <input
+          type="text"
+          name="phone"
+          value={profile.phone}
+          onChange={handleChange}
+          placeholder="Phone"
+        />
+
+        <label>Company Name</label>
+        <input
+          type="text"
+          name="companyName"
+          value={profile.companyName}
+          onChange={handleChange}
+          placeholder="Company Name"
+        />
+
+        <label>Company Website</label>
+        <input
+          type="text"
+          name="companyWebsite"
+          value={profile.companyWebsite}
+          onChange={handleChange}
+          placeholder="Company Website"
+        />
+
+        <label>Industry</label>
+        <input
+          type="text"
+          name="industry"
+          value={profile.industry}
+          onChange={handleChange}
+          placeholder="Industry"
+        />
+
+        <label>Address</label>
+        <textarea
+          name="address"
+          value={profile.address}
+          onChange={handleChange}
+          placeholder="Address"
+        ></textarea>
+
+        <button type="submit" className="profile-btn">
+          Update Profile
+        </button>
+      </form>
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchJobApplications, updateApplicationStatus } from "../services/api";
+import ApplicantDetailsPopup from "./ApplicantDetails";
+import { Link } from "react-router-dom";
 
 const EmployerApplications = ({ jobId }) => {
   const [applications, setApplications] = useState([]);
@@ -53,7 +55,11 @@ const EmployerApplications = ({ jobId }) => {
           <tbody>
             {applications.map((app) => (
               <tr key={app._id}>
-                <td>{app.jobSeekerId.name}</td>
+                <td>
+                  <Link to={`/applicant/${app.jobSeekerId._id}`}>
+                    {app.jobSeekerId.name}
+                  </Link>
+                </td>
                 <td>{app.jobSeekerId.email}</td>
                 <td>
                   {app.status !== "pending"
@@ -65,7 +71,9 @@ const EmployerApplications = ({ jobId }) => {
                     : "Pending"}
                 </td>
                 <td>
-            {app.status !== "pending" ? "----" : (
+                  {app.status !== "pending" ? (
+                    "----"
+                  ) : (
                     <>
                       <button
                         onClick={() => handleUpdateStatus(app._id, "accepted")}

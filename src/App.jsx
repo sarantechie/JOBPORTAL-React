@@ -10,24 +10,30 @@ import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
 import MyJobs from "./pages/MyJobs";
 import Profile from "./pages/Profile";
+import ApplicantDetails from "./components/ApplicantDetails";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 function App() {
   return (
-    <AppProvider>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/Profile" element={<Profile />} />
-          <Route path="/job/:id" element={<JobDetails />} />
-          <Route path="/post-job" element={<PostJob />} />
-          <Route path="/jobs" element={<MyJobs />} />
-        </Routes>
-      </Router>
-      <Footer />
-    </AppProvider>
+    <QueryClientProvider client={queryClient}>
+      <AppProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/Profile" element={<Profile />} />
+            <Route path="/job/:id" element={<JobDetails />} />
+            <Route path="/post-job" element={<PostJob />} />
+            <Route path="/jobs" element={<MyJobs />} />
+            <Route path="/applicant/:id" element={<ApplicantDetails />} />
+          </Routes>
+        </Router>
+        {/* <Footer /> */}
+      </AppProvider>
+    </QueryClientProvider>
   );
 }
 
