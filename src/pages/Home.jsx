@@ -1,33 +1,16 @@
 import { useContext, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
 import AppContext from "../context/AppContext";
-import JobCard from "../components/JobCard";
+import JobCard from "../components/JobCard"; 
 import "../styles/Home.css";
 
 function Home() {
-  const { fetchJobs } = useContext(AppContext);
+  const { jobs, fetchJobs } = useContext(AppContext);
 
-  const {
-    data: jobs,
-    isLoading,
-    isError,
-    error,
-  } = useQuery({
-    queryKey: ["jobs"],     queryFn: fetchJobs,
-  });
+  useEffect(() => {
+    fetchJobs();
+  }, []);
 
-  if (isLoading) {
-    return <div className="home-container">Loading...</div>;
-  }
-
-  if (isError) {
-    return (
-      <div className="home-container">
-        Error fetching jobs: {error.message}
-      </div>
-    );
-  }
-
+  if (!jobs) return <p>Loading...</p>
   return (
     <div className="home-container">
       <h1>Job Listings</h1>
