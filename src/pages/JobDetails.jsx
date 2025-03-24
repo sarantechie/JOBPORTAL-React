@@ -12,20 +12,19 @@ function JobDetails() {
   const queryClient = useQueryClient();
   const [ViewApplications, setViewApplications] = useState(false);
 
-  // Fetch job details
+
   const { data: job, isLoading: jobLoading } = useQuery({
     queryKey: ["job", id],
     queryFn: () => fetchJob(id).then((res) => res.data),
   });
 
-  // Check application status
+
   const { data: applied, isLoading: statusLoading } = useQuery({
     queryKey: ["applicationStatus", id, user?._id],
     queryFn: () => (user?.role === "jobseeker" ? applicationStatus(id).then((res) => res.data.applied) : false),
     enabled: !!user,
   });
 
-  // Mutation for applying to a job
   const applyMutation = useMutation({
     mutationFn: () => applyForJob(id, user._id),
     onSuccess: () => {
@@ -34,7 +33,7 @@ function JobDetails() {
     },
   });
 
-  // Apply job handler
+  
   const applyJob = () => {
     if (!user) {
       alert("Login to apply");

@@ -5,19 +5,21 @@ import { getMyJobs } from "../services/api";
 const JobseekerJobs = () => {
   const [appliedJobs, setAppliedJobs] = useState([]);
   const navigate = useNavigate();
+  const [loading,setLoading] = useState(true);
 
   const handleWithdraw = async (applicationId) => {
+    setLoading(true);
     try {
-      await axios.put(`/api/applications/withdraw/${applicationId}`, {});
-
-    
+      await axios.put(`/api/applications/withdraw/${applicationId}`, {});    
       setAppliedJobs(
         appliedJobs.map((job) =>
           job._id === applicationId ? { ...job, status: "Withdrawn" } : job
         )
       );
+      setLoading(false)
     } catch (error) {
       console.error("Error withdrawing application:", error);
+      setLoading(false)
     }
   };
 
@@ -33,6 +35,9 @@ const JobseekerJobs = () => {
 
     fetchAppliedJobs();
   }, []);
+
+  if (loading) return <p>Loading...</p>
+
   return (
     <>
       <h1>Applied Jobs</h1>

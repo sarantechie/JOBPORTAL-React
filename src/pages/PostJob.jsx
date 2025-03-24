@@ -9,7 +9,10 @@ function PostJob() {
     description: "",
     skills: [""],
   });
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const [loading, setLoading] = useState(false);
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSkillChange = (index, value) => {
     const updatedSkills = [...form.skills];
@@ -25,19 +28,46 @@ function PostJob() {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
-    await createJob(form)
+    await createJob(form);
+    setLoading(false);
     alert("Job posted successfully!");
+    setForm({
+      title: "",
+      location: "",
+      salary: "",
+      description: "",
+      skills: [""],
+    });
   };
 
- return (
+  return (
     <div className="postjob-container">
       <h2>Post a Job</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="title" placeholder="Job Title" onChange={handleChange} required />
-        <input type="text" name="location" placeholder="Location" onChange={handleChange} required />
-        <input type="number" name="salary" placeholder="Salary" onChange={handleChange} required />
-        
+        <input
+          type="text"
+          name="title"
+          placeholder="Job Title"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="location"
+          placeholder="Location"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="number"
+          name="salary"
+          placeholder="Salary"
+          onChange={handleChange}
+          required
+        />
+
         <div className="skills-container">
           {form.skills.map((skill, index) => (
             <div key={index} className="skill-input">
@@ -49,7 +79,11 @@ function PostJob() {
                 required
               />
               {index > 0 && (
-                <button type="button" className="remove-skill" onClick={() => removeSkill(index)}>
+                <button
+                  type="button"
+                  className="remove-skill"
+                  onClick={() => removeSkill(index)}
+                >
                   -
                 </button>
               )}
@@ -60,8 +94,13 @@ function PostJob() {
           </button>
         </div>
 
-        <textarea name="description" placeholder="Job Description" onChange={handleChange} required />
-        <button type="submit">Post Job</button>
+        <textarea
+          name="description"
+          placeholder="Job Description"
+          onChange={handleChange}
+          required
+        />
+        <button type="submit">{loading ? "Posting..." : "Post Job"}</button>
       </form>
     </div>
   );

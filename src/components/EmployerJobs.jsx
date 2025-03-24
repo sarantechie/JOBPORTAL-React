@@ -6,16 +6,20 @@ import JobCard from "../components/JobCard";
 const EmployerJobs = () => {
   const { user, token } = useContext(AppContext);
   const [jobs, setJobs] = useState([]);
+  const [loading,setLoading] = useState(true)
 
   useEffect(() => {
     const fetchJobs = async () => {
+      setLoading(true);
       const res = await fetchMyPostedJobs();
       setJobs(res.data);
+      setLoading(false);
     };
     if (user?.role === "employer") {
       fetchJobs();
     }
   }, [user, token]);
+  if(loading) return <p>Loading...</p>
 
   return (
     <div>
