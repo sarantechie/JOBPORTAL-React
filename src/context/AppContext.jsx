@@ -34,14 +34,18 @@ export const AppProvider = ({ children }) => {
 
   const googleLogin = async (googleToken) => {
     try {
-      const res = await axios.post("https://jobportalapi.vercel.app/api/auth/google-login", { token: googleToken });
+      const res = await axios.post("https://jobportalapi.vercel.app/api/auth/google-login", { token: googleToken },{ withCredentials: true });
 
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
       setUser(res.data.user);
     } catch (error) {
-      console.error("Google login error:", error.response?.data?.message || error.message);
-      alert("Google authentication failed");
+      console.error("Full Google login error:", {
+        response: error.response?.data,
+        message: error.message,
+        config: error.config
+      });
+            alert("Google authentication failed");
     }
   };
 
