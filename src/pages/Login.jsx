@@ -27,7 +27,6 @@ function Login() {
     try {
       const decodedToken = jwtDecode(response.credential);
       console.log("Google User Info:", decodedToken);
-
       await googleLogin(response.credential);
       navigate("/");
     } catch (error) {

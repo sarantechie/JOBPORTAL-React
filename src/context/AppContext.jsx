@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 import { fetchAllJobs, loginUser, updateMyProfile } from "../services/api";
+import url from "../services/env";
 
 const AppContext = createContext();
 
@@ -13,7 +14,7 @@ export const AppProvider = ({ children }) => {
     const fetch = async () => {
       if (token) {
         await axios
-          .get("https://jobportalapi.vercel.app/api/auth/me", {
+          .get(`${url}/auth/me`, {
             headers: { Authorization: `Bearer ${token}` },
           })
           .then((res) => {
@@ -34,7 +35,8 @@ export const AppProvider = ({ children }) => {
 
   const googleLogin = async (googleToken) => {
     try {
-      const res = await axios.post("https://jobportalapi.vercel.app/api/auth/google-login", { token: googleToken },{ withCredentials: true });
+      const res = await axios.post("http://localhost:5000/api/auth/google-login", { token: googleToken },{ withCredentials: true });
+      // const res = await axios.post(`${url}/api/auth/google-login`, { token: googleToken },{ withCredentials: true });
 
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
@@ -45,7 +47,7 @@ export const AppProvider = ({ children }) => {
         message: error.message,
         config: error.config
       });
-            alert("Google authentication failed");
+      alert("Google authentication failed");
     }
   };
 

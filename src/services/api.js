@@ -1,8 +1,9 @@
 import axios from "axios";
+import url from "./env";
 
 const api = axios.create({
-  // baseURL: "http://localhost:5000/api",
-  baseURL: "https://jobportalapi.vercel.app/api",
+  baseURL: "http://localhost:5000/api",
+  // baseURL: url,
 });
 
 api.interceptors.request.use(
