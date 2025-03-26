@@ -14,7 +14,8 @@ export const AppProvider = ({ children }) => {
     const fetch = async () => {
       if (token) {
         await axios
-          .get(`${url}/auth/me`, {
+          // .get("http://localhost:5000/api/auth/me", {
+            .get("https://jobportalapi.vercel.app/api/auth/me", {
             headers: { Authorization: `Bearer ${token}` },
           })
           .then((res) => {
@@ -35,8 +36,9 @@ export const AppProvider = ({ children }) => {
 
   const googleLogin = async (googleToken) => {
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/google-login", { token: googleToken },{ withCredentials: true });
-      // const res = await axios.post(`${url}/api/auth/google-login`, { token: googleToken },{ withCredentials: true });
+      // const res = await axios.post("http://localhost:5000/api/auth/google-login", { token: googleToken });
+      const res = await axios.post("https://jobportalapi.vercel.app/api/auth/google-login", { token: googleToken });
+
 
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
