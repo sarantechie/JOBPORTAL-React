@@ -2,8 +2,8 @@ import axios from "axios";
 import url from "./env";
 
 const api = axios.create({
-  // baseURL: "http://localhost:5000/api",
-  baseURL: "https://jobportal-api-roan.vercel.app/api",
+  baseURL: "http://localhost:5000/api",
+  // baseURL: "https://jobportal-api-roan.vercel.app/api",
 });
 
 api.interceptors.request.use(
@@ -109,12 +109,27 @@ export const getMyJobs = async () => {
   return res;
 };
 
-export const uploadResume = async (resume) => {
-  const res = await api.post(`/auth/upload-resume`, resume);
-  return res;
-};
+// export const uploadResume = async (resume) => {
+//   const res = await api.post(`/auth/upload-resume`, resume);
+//   return res;
+// };
 
 export const fetchApplicantDetails = async (applicantId) => {
   const res = await api.get(`/auth/${applicantId}`);
   return res;
 };
+
+export const uploadResume = async (formData) => {
+  const res = await api.post("/auth/resume/upload", formData);
+  return res;
+};
+
+export const deleteResume = async () => {
+  const res = await api.delete("/auth/resume");
+  return res;
+};
+
+export const getResumeUrl = async (id) => {
+  const res = await api.get(`/auth/resume/${id}`);
+  return res;
+}
