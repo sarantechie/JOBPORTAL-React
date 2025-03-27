@@ -1,9 +1,8 @@
 import axios from "axios";
-import url from "./env";
 
 const api = axios.create({
-  // baseURL: "http://localhost:5000/api",
-  baseURL: "https://jobportal-api-roan.vercel.app/api",
+  baseURL: "http://localhost:5000/api",
+  // baseURL: "https://jobportal-api-roan.vercel.app/api",
 });
 
 api.interceptors.request.use(
@@ -116,5 +115,17 @@ export const uploadResume = async (resume) => {
 
 export const fetchApplicantDetails = async (applicantId) => {
   const res = await api.get(`/auth/${applicantId}`);
+  return res;
+};
+
+export const google_Login = async (googleToken) => {
+  const res = await api.post("/auth/google-login", { token: googleToken });
+  return res;
+};
+
+export const me = async (token) => {
+  const res = await api.get("/auth/me", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
   return res;
 };

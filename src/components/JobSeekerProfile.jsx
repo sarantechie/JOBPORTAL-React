@@ -544,7 +544,7 @@ const JobSeekerProfile = () => {
             </tbody>
           </table>
 
-          <label>Resume</label>
+          {/* <label>Resume</label>
           <input
             type="file"
             accept=".pdf,.doc,.docx"
@@ -564,7 +564,7 @@ const JobSeekerProfile = () => {
                 View Resume
               </a>
             </p>
-          )}
+          )} */}
 
           <button type="submit" className="profile-btn" disabled={isLoading}>
             {isLoading ? "Saving..." : "Save Profile"}

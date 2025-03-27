@@ -5,13 +5,12 @@ import "../styles/Navbar.css";
 
 function Navbar() {
   const { user, logout } = useContext(AppContext);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!user) {
-  //     navigate("/"); // Navigate to home if user is null
-  //   }
-  // }, [user]);
+  const handleLogout = () => {
+    navigate("/"); 
+    logout(); 
+  };
   return (
     <nav className="navbar">
       <div className="logo">
@@ -38,7 +37,7 @@ function Navbar() {
               <Link to="/Profile">Profile</Link>
             </li>
             <li>
-              <button onClick={logout} className="logout-btn">
+              <button onClick={handleLogout} className="logout-btn">
                 Logout
               </button>
             </li>

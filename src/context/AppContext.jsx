@@ -1,7 +1,11 @@
 import { createContext, useState, useEffect } from "react";
-import axios from "axios";
-import { fetchAllJobs, loginUser, updateMyProfile } from "../services/api";
-import url from "../services/env";
+import {
+  fetchAllJobs,
+  google_Login,
+  loginUser,
+  me,
+  updateMyProfile,
+} from "../services/api";
 
 const AppContext = createContext();
 
@@ -13,15 +17,8 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     const fetch = async () => {
       if (token) {
-        await axios
-          // .get("http://localhost:5000/api/auth/me", {
-            .get("https://jobportal-api-roan.vercel.app/api/auth/me", {
-            headers: { Authorization: `Bearer ${token}` },
-          })
-          .then((res) => {
-            setUser(res.data)
-          })
-          .catch(() => logout());
+        const res = await me(token);
+        setUser(res.data);
       }
     };
     fetch();
@@ -36,10 +33,7 @@ export const AppProvider = ({ children }) => {
 
   const googleLogin = async (googleToken) => {
     try {
-      // const res = await axios.post("http://localhost:5000/api/auth/google-login", { token: googleToken });
-      const res = await axios.post("https://jobportal-api-roan.vercel.app/api/auth/google-login", { token: googleToken });
-
-
+      const res = await google_Login(googleToken);
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
       setUser(res.data.user);
@@ -47,23 +41,23 @@ export const AppProvider = ({ children }) => {
       console.error("Full Google login error:", {
         response: error.response?.data,
         message: error.message,
-        config: error.config
+        config: error.config,
       });
       alert("Google authentication failed");
     }
   };
 
-    const updateProfile = async (updatedData) => {
-      try {
-        const res = await updateMyProfile(updatedData);
-        setUser(res.data);
-        alert("Profile updated successfully!");
-      } catch (error) {
-        alert(error.response?.data?.message || "Error updating profile");
-      }
-    };
+  const updateProfile = async (updatedData) => {
+    try {
+      const res = await updateMyProfile(updatedData);
+      setUser(res.data);
+      alert("Profile updated successfully!");
+    } catch (error) {
+      alert(error.response?.data?.message || "Error updating profile");
+    }
+  };
 
-  const logout = () => {
+  const logout = (navigate) => {
     setToken("");
     setUser(null);
     localStorage.removeItem("token");
@@ -76,7 +70,17 @@ export const AppProvider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ user, googleLogin,login, logout, jobs, fetchJobs,updateProfile }}>
+    <AppContext.Provider
+      value={{
+        user,
+        googleLogin,
+        login,
+        logout,
+        jobs,
+        fetchJobs,
+        updateProfile,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
