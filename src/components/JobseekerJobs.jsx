@@ -45,7 +45,7 @@ const JobseekerJobs = () => {
     <>
       <div className="container">
         {appliedJobs.length === 0 ? (
-          <p>Loading....</p>
+          <p>No Applications</p>
         ) : (
           <>
             <h1>Applied Jobs</h1>
