@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  // baseURL: "http://localhost:5000/api",
-  baseURL: "https://jobportal-api-roan.vercel.app/api",
+  baseURL: "http://localhost:5000/api",
+  // baseURL: "https://jobportal-api-roan.vercel.app/api",
 });
 
 api.interceptors.request.use(
@@ -108,6 +108,11 @@ export const getMyJobs = async () => {
   return res;
 };
 
+export const withdrawApplication=async(applicationId)=>{
+  const res = await api.put(`/applications/withdraw/${applicationId}`, {});
+  return res;
+}
+
 export const uploadResume = async (resume) => {
   const res = await api.post(`/auth/upload-resume`, resume);
   return res;
@@ -127,5 +132,11 @@ export const me = async (token) => {
   const res = await api.get("/auth/me", {
     headers: { Authorization: `Bearer ${token}` },
   });
+  return res;
+};
+
+export const getNotifications = async () => {
+  const res = await api.get(`/notifications`);
+  console.log("Notifications", res);  
   return res;
 };

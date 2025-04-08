@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import AppContext from "../context/AppContext";
-import EmployerJobs from "../components/EmployerJobs";
-import JobseekerJobs from "../components/JobseekerJobs";
+import EmployerJobs from "./MyJobs/Employer/EmployerJobs";
+import JobseekerJobs from "./MyJobs/JobSeeker/JobseekerJobs";
 
 const MyJobs = () => {
   const { user } = useContext(AppContext);

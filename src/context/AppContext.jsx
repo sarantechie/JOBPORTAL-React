@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import {
   fetchAllJobs,
+  getNotifications,
   google_Login,
   loginUser,
   me,
@@ -13,16 +14,22 @@ export const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [jobs, setJobs] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
-
+  const [notifications, setNotifications] = useState();
   useEffect(() => {
     const fetch = async () => {
       if (token) {
         const res = await me(token);
         setUser(res.data);
+        const notifi=await getNotifications();
+        setNotifications(notifi.data);
       }
     };
     fetch();
   }, [token]);
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
 
   const login = async (email, password) => {
     const res = await loginUser(email, password);
@@ -47,7 +54,7 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  const updateProfile = async (updatedData) => {
+  const updateProfile = async (updatedData) => {    
     try {
       const res = await updateMyProfile(updatedData);
       setUser(res.data);
@@ -57,7 +64,7 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  const logout = (navigate) => {
+  const logout = () => {
     setToken("");
     setUser(null);
     localStorage.removeItem("token");
@@ -79,6 +86,7 @@ export const AppProvider = ({ children }) => {
         jobs,
         fetchJobs,
         updateProfile,
+        notifications
       }}
     >
       {children}

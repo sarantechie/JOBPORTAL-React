@@ -1,0 +1,180 @@
+/* Main Container */
+.applications-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Header */
+  .applications-header {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  /* Empty State */
+  .no-applications {
+    text-align: center;
+    padding: 2rem;
+    color: #718096;
+    font-style: italic;
+  }
+  
+  /* Table Styling */
+  .applications-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .applications-table thead {
+    background-color: #f7fafc;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  
+  .applications-table th {
+    padding: 1rem;
+    text-align: left;
+    color: #4a5568;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .applications-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #edf2f7;
+    color: #2d3748;
+  }
+  
+  .applications-table tr:hover {
+    background-color: #f8fafc;
+  }
+  
+  /* Applicant Link */
+  .name-applicant-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  
+  .name-applicant-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+  
+  /* Status Badges */
+  .status-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  
+  .status-pending {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .status-accepted {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+  
+  .status-rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  /* Action Buttons */
+  .action-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  
+  .accept-btn {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+  
+  .accept-btn:hover {
+    background-color: #166534;
+    color: white;
+  }
+  
+  .reject-btn {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .reject-btn:hover {
+    background-color: #991b1b;
+    color: white;
+  }
+  
+  /* Loading State */
+
+  .loading-spinner {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .applications-container {
+      padding: 1rem;
+    }
+  
+    .applications-table {
+      display: block;
+      overflow-x: auto;
+    }
+  
+    .applications-table th,
+    .applications-table td {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.875rem;
+    }
+  
+    .action-buttons {
+      gap: 0.25rem;
+    }
+  
+    .action-btn {
+      width: 28px;
+      height: 28px;
+    }
+  }

@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
-import EmployerProfile from "../components/EmployerProfile";
-import JobSeekerProfile from "../components/JobSeekerProfile";
+import EmployerProfile from "./EmployerProfile/EmployerProfile";
+import JobSeekerProfile from "./JSProfile/JobSeekerProfile";
 
 function Profile() {
   const { user } = useContext(AppContext);

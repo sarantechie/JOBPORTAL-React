@@ -1,0 +1,199 @@
+/* Main Container */
+.jobseeker-jobs-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Header Section */
+  .header-section {
+    margin-bottom: 2rem;
+  }
+  
+  .header-section h2 {
+    color: #2d3748;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .header-section .subtitle {
+    color: #718096;
+    font-size: 1rem;
+  }
+  
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: #f8fafc;
+    border-radius: 8px;
+  }
+  
+  .empty-state p {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Table Container */
+  .table-container {
+    overflow-x: auto;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Applications Table */
+  .applications-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+  }
+  
+  .applications-table thead {
+    background-color: #f7fafc;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  
+  .applications-table th {
+    padding: 1rem;
+    text-align: left;
+    color: #4a5568;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .applications-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #edf2f7;
+    color: #2d3748;
+  }
+  
+  .applications-table tr:hover {
+    background-color: #f8fafc;
+  }
+  
+  /* Job Title Link */
+  .job-title-link {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .job-title-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Status Badges */
+  .status-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  
+  .status-badge.pending {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .status-badge.accepted {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+  
+  .status-badge.rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .status-badge.withdrawn {
+    background-color: #e2e8f0;
+    color: #4a5568;
+  }
+  
+  /* Action Buttons */
+  .action-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .view-btn, .withdraw-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .view-btn {
+    background-color: #ebf4ff;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+  }
+  
+  .view-btn:hover {
+    background-color: #d6e4ff;
+  }
+  
+  .withdraw-btn {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #991b1b;
+  }
+  
+  .withdraw-btn:hover {
+    background-color: #fecaca;
+  }
+  
+  /* Loading State */
+  .loading-spinner {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .jobseeker-jobs-container {
+      padding: 1.5rem;
+    }
+  
+    .applications-table th,
+    .applications-table td {
+      padding: 0.75rem 0.5rem;
+      font-size: 0.875rem;
+    }
+  
+    .action-buttons {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+  
+    .view-btn, .withdraw-btn {
+      padding: 0.5rem;
+      font-size: 0.8125rem;
+    }
+  }

@@ -1,0 +1,547 @@
+/* Profile Container */
+.profile-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: center;
+  }
+  
+  .profile-header h2 {
+    color: #1e3a8a;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Profile Picture - Perfect Circle */
+  .profile-picture-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 3px solid #e0f2fe;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f0f9ff;
+  }
+  
+  .profile-picture-container:hover {
+    transform: scale(1.05);
+  }
+  
+  .profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Fallback for no image */
+  .profile-picture-container::after {
+    content: attr(data-initial);
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2563eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Profile Form */
+  .profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .profile-form label {
+    color: #4a5568;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+  
+  .profile-form input,
+  .profile-form textarea,
+  .profile-form select {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #f9fafb;
+  }
+  
+  .profile-form input:focus,
+  .profile-form textarea:focus,
+  .profile-form select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  
+  .profile-form textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+  }
+  
+  /* Multi-field inputs */
+  .multi-field {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .multi-field input {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  .add-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .add-btn:hover {
+    background: #1d4ed8;
+  }
+  
+  
+  .remove-btn {
+    background: none;
+    border: none;
+    color: #dc2626;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+  }
+  
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  th {
+    background-color: #f7fafc;
+    color: #4a5568;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  
+  tr:hover {
+    background-color: #f8fafc;
+  }
+  
+  table button {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    border: none;
+    transition: all 0.2s;
+  }
+  
+  table button:first-child {
+    background-color: #4299e1;
+    color: white;
+  }
+  
+  table button:first-child:hover {
+    background-color: #3182ce;
+  }
+  
+  table button:last-child {
+    background-color: #f56565;
+    color: white;
+  }
+  
+  table button:last-child:hover {
+    background-color: #e53e3e;
+  }
+  
+  /* Checkbox styling */
+  input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+  }
+  
+  /* Resume section */
+  .resume-file-name {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .resume-file-name a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  
+  .resume-file-name a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Profile Button */
+  .profile-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 1.5rem;
+  }
+  
+  .profile-btn:hover {
+    background: #1d4ed8;
+  }
+  
+  .profile-btn:disabled {
+    background: #a0aec0;
+    cursor: not-allowed;
+  }
+  
+  /* Messages */
+  .error-message {
+    color: #e53e3e;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .success-message {
+    color: #38a169;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+ /* Logo Popup - Centered and Perfect Circle */
+.profile-picture-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+  }
+  
+  .popup-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Perfect Circle Container for Popup */
+  .popup-image-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 4px solid #2563eb;
+    background-color: #f0f9ff;
+    position: relative;
+  }
+  
+  /* Ensures image fills container while maintaining aspect ratio */
+  .popup-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .popup-placeholder {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #2563eb;
+  }
+  
+  /* File Input Styling */
+  .file-input-wrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  .edit-icon {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 1rem;
+  }
+  
+  .edit-icon:hover {
+    background: #1d4ed8;
+  }
+  
+  #logo-upload {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  /* Popup Buttons */
+  .popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .popup-buttons button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+    max-width: 120px;
+  }
+  
+  .popup-buttons button:first-child {
+    background: #2563eb;
+    color: white;
+    border: none;
+  }
+  
+  .popup-buttons button:first-child:hover {
+    background: #1d4ed8;
+  }
+  
+  .popup-buttons button:last-child {
+    background: white;
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .popup-buttons button:last-child:hover {
+    background: #f7fafc;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 480px) {
+    .popup-content {
+      padding: 1.5rem;
+    }
+  
+    .popup-image-container {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .popup-placeholder {
+      font-size: 3rem;
+    }
+  
+    .popup-buttons {
+      flex-direction: column;
+    }
+  
+    .popup-buttons button {
+      max-width: 100%;
+    }
+  }
+
+  /* Loading State */
+  .loading-spinner {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+
+  /* ... (keep all existing styles until the skills section) */
+
+/* Skills Section */
+.skills-input-container {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.skills-input-container input {
+  flex: 1;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-item {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.remove-skill-btn {
+  background: none;
+  border: none;
+  color: #dc2626;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Education & Experience Forms */
+.education-form,
+.experience-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.date-fields {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.date-fields input {
+  flex: 1;
+  min-width: 150px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4a5568;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.action-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  align-self: flex-start;
+}
+
+.action-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Date input placeholders */
+input[type="text"][placeholder^="Start"],
+input[type="text"][placeholder^="End"] {
+  color: #a0aec0;
+}
+
+input[type="text"][placeholder^="Start"]:focus,
+input[type="text"][placeholder^="End"]:focus {
+  color: #2d3748;
+}
+
+/* Tables - keep existing table styles but add this for consistency */
+.education-table,
+.experience-table {
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .date-fields {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .date-fields input {
+    width: 100%;
+  }
+
+  .checkbox-label {
+    margin-top: 0.5rem;
+  }
+}

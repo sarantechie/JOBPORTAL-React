@@ -1,0 +1,161 @@
+.job-portal-home * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.job-portal-home {
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #e4e8eb,  #ffffff);
+  color: #0A1828;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+/* Search Box */
+.search-box {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.search-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.search-row input, 
+.search-row select {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #a19a9a;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.search-row select {
+  color: #555;
+}
+
+.search-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.search-btn:hover {
+  background: #c0392b;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* Companies Section */
+.companies {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.companies h2 {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  color: #2c3e50;
+}
+
+.company-logos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  padding: 20px 40px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.logo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-row {
+    flex-direction: column;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .company-logos {
+    gap: 15px;
+  }
+  
+  .logo {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+  }
+}

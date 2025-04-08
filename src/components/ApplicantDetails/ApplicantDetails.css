@@ -1,0 +1,268 @@
+/* Main Container */
+.applicant-details-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2d3748;
+    line-height: 1.6;
+  }
+  
+  /* Header Section */
+  .applicant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .profile-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ebf4ff;
+  }
+  
+  /* Status Badge */
+  .status-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-top: 0.5rem;
+  }
+  
+  .status-badge.pending {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .status-badge.accepted {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+  
+  .status-badge.rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  /* Status Actions */
+  .status-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .status-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  
+  .status-btn.accept {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+  
+  .status-btn.accept:hover, .status-btn.accept.active {
+    background-color: #166534;
+    color: white;
+  }
+  
+  .status-btn.reject {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .status-btn.reject:hover, .status-btn.reject.active {
+    background-color: #991b1b;
+    color: white;
+  }
+  
+  /* Info Sections */
+  .info-section {
+    margin-bottom: 2rem;
+  }
+  
+  .info-section h3 {
+    font-size: 1.25rem;
+    color: #1a202c;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  /* Info Grid */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .info-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .info-label {
+    font-size: 0.875rem;
+    color: #718096;
+    margin-bottom: 0.25rem;
+  }
+  
+  .info-value {
+    font-weight: 500;
+    color: #2d3748;
+  }
+  
+  /* Skills */
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .skill-tag {
+    background-color: #ebf4ff;
+    color: #2563eb;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+  
+  /* Education & Experience */
+  .education-container,
+  .experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .education-item,
+  .experience-item {
+    background: #f8fafc;
+    padding: 1.25rem;
+    border-radius: 8px;
+    border-left: 3px solid #2563eb;
+  }
+  
+  .education-header,
+  .experience-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .education-duration,
+  .experience-duration {
+    color: #718096;
+    font-size: 0.875rem;
+  }
+  
+  .education-degree,
+  .experience-position {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .experience-description {
+    color: #4a5568;
+    font-size: 0.9375rem;
+  }
+  
+  /* Resume Link */
+  .resume-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .resume-link:hover {
+    background-color: #1d4ed8;
+  }
+  
+  /* Empty States */
+  .no-data {
+    color: #718096;
+    font-style: italic;
+  }
+  
+  /* Loading State */
+  .loading-spinner {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Not Found */
+  .not-found {
+    text-align: center;
+    padding: 2rem;
+    color: #718096;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .applicant-details-container {
+      padding: 1.5rem;
+    }
+  
+    .applicant-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+  
+    .profile-section {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  
+    .status-actions {
+      width: 100%;
+    }
+  
+    .status-btn {
+      flex: 1;
+      text-align: center;
+    }
+  }
