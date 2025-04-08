@@ -71,14 +71,6 @@ function Login() {
       <p className="register-link">
         Don't have an account? <Link to="/register">Register</Link>
       </p>
-      {/* <GoogleOAuthProvider clientId={clientId}>
-          <div>
-            <GoogleLogin
-              onSuccess={handleSuccess}
-              onError={() => console.log("Login Failed")}
-            />
-          </div>
-        </GoogleOAuthProvider> */}
     </div>
   );
 }

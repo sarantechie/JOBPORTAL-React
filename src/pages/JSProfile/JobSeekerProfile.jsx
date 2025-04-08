@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import AppContext from "../../context/AppContext";
 import "./JobSeekerProfile.css";
-import { uploadResume } from "../../services/api";
 import {
   formatDateForDisplay,
   formatDateForInput,
@@ -20,49 +19,10 @@ const JobSeekerProfile = () => {
     skills: [],
     education: [],
     experience: [],
-    resume: "",
     profilePicture: "",
   });
 
-  const [resumeFile, setResumeFile] = useState(null);
-  const [resumeUploading, setResumeUploading] = useState(false);
   const [dateError, setDateError] = useState("");
-
-  const handleResumeChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setResumeFile(file);
-    }
-  };
-
-  const handleResumeUpload = async () => {
-    if (!resumeFile) {
-      alert("Please select a resume file.");
-      return;
-    }
-
-    setResumeUploading(true);
-
-    try {
-      const formData = new FormData();
-      formData.append("resume", resumeFile);
-
-      const response = await uploadResume(formData);
-      ("res...", response);
-
-      if (!response.ok) {
-        throw new Error("Failed to upload resume.");
-      }
-
-      const data = await response.json();
-      setProfile({ ...profile, resume: data.resumePath });
-      alert("Resume uploaded successfully!");
-    } catch (error) {
-      alert(error.message);
-    } finally {
-      setResumeUploading(false);
-    }
-  };
 
   const [newSkill, setNewSkill] = useState("");
   const [newExperience, setNewExperience] = useState({
@@ -135,7 +95,6 @@ const JobSeekerProfile = () => {
     setDateError("");
 
     if (newEducation.institution && newEducation.degree) {
-      
       if (
         newEducation.startDate &&
         !validateDateFormat(newEducation.startDate)
@@ -207,7 +166,6 @@ const JobSeekerProfile = () => {
     setDateError("");
 
     if (newExperience.company && newExperience.position) {
-      
       if (
         newExperience.startDate &&
         !validateDateFormat(newExperience.startDate)
@@ -319,9 +277,8 @@ const JobSeekerProfile = () => {
 
   useEffect(() => {
     if (user) {
-      ("User Data:", user);
+      "User Data:", user;
       const data = user;
-    
 
       setProfile({
         name: data.name || "",
@@ -343,7 +300,7 @@ const JobSeekerProfile = () => {
               endDate: formatDateFromAPI(exp.endDate) || "",
             }))
           : [],
-        resume: data.resume || "",
+
         profilePicture: data.profilePicture || "",
       });
     }
@@ -389,7 +346,6 @@ const JobSeekerProfile = () => {
                   alt="Profile Preview"
                   className="popup-profile-picture"
                   onLoad={(e) => {
-                    
                     e.target.style.objectFit = "cover";
                     e.target.style.objectPosition = "center";
                   }}
@@ -704,28 +660,6 @@ const JobSeekerProfile = () => {
             ))}
           </tbody>
         </table>
-
-        {/* <label>Resume</label>
-          <input
-            type="file"
-            accept=".pdf,.doc,.docx"
-            onChange={handleResumeChange}
-          />
-          <button onClick={handleResumeUpload} disabled={resumeUploading}>
-            {resumeUploading ? "Uploading..." : "Upload Resume"}
-          </button>
-          {profile.resume && (
-            <p className="resume-file-name">
-              Uploaded Resume:{" "}
-              <a
-                href={profile.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Resume
-              </a>
-            </p>
-          )} */}
 
         <button type="submit" className="profile-btn" disabled={isLoading}>
           {isLoading ? "Saving..." : "Save Profile"}

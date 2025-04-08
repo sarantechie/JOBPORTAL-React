@@ -8,22 +8,6 @@ const JobseekerJobs = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  const handleWithdraw = async (applicationId) => {
-    try {
-      setLoading(true);
-      await withdrawApplication(applicationId);
-      setAppliedJobs((prev) =>
-        prev.map((job) =>
-          job._id === applicationId ? { ...job, status: "Withdrawn" } : job
-        )
-      );
-      setLoading(false);
-    } catch (error) {
-      console.error("Error withdrawing application:", error);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
     const fetchAppliedJobs = async () => {
       setLoading(true);
@@ -105,14 +89,6 @@ const JobseekerJobs = () => {
                       >
                         View
                       </button>
-                      {/* {job.status.toLowerCase() === "pending" && (
-                        <button
-                          className="withdraw-btn"
-                          onClick={() => handleWithdraw(job._id)}
-                        >
-                          Withdraw
-                        </button>
-                      )} */}
                     </div>
                   </td>
                 </tr>
@@ -126,44 +102,3 @@ const JobseekerJobs = () => {
 };
 
 export default JobseekerJobs;
-
-{
-  /* <div className="job-list">
-              {appliedJobs.map((job) => (
-                <div key={job._id} className="job-card">
-                  <h3>{job.jobId.title}</h3>
-                  <p>
-                    {job.jobId.company} - {job.jobId.location}
-                  </p>
-                  <p>
-                    <strong>Applied on:</strong>{" "}
-                    {new Date(job.createdAt).toLocaleDateString()}
-                  </p>
-                  <p>
-                    <strong>Status:</strong> {job.status}
-                  </p>
-
-                  {job.status === "Pending" ? (
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => handleWithdraw(job._id)}
-                    >
-                      Withdraw Application
-                    </button>
-                  ) : (
-                    <p>
-                      <strong>Updated on:</strong>{" "}
-                      {new Date(job.updatedAt).toLocaleDateString()}
-                    </p>
-                  )}
-
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => navigate(`/job/${job.jobId._id}`)}
-                  >
-                    View Job Details
-                  </button>
-                </div>
-              ))}
-            </div> */
-}

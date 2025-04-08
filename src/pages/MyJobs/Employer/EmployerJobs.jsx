@@ -27,14 +27,6 @@ const EmployerJobs = () => {
       const res = await fetchMyPostedJobs();
       setJobs(res.data);
       ("Posted jobs:", res.data);
-
-      
-      // const visibilityState = {};
-      // res.data.forEach(job => {
-      //   visibilityState[job._id] = job.visible || false;
-      // });
-      // setVisibleJobs(visibilityState);
-
       setLoading(false);
     };
     if (user?.role === "employer") {
@@ -42,15 +34,7 @@ const EmployerJobs = () => {
     }
   }, [user, token]);
 
-  const toggleVisibility = (jobId) => {
-    setVisibleJobs((prev) => ({
-      ...prev,
-      [jobId]: !prev[jobId],
-    }));
-    // Here you would also call an API to update visibility in the backend
-  };
 
-  // Pagination logic
   const indexOfLastJob = currentPage * jobsPerPage;
   const indexOfFirstJob = indexOfLastJob - jobsPerPage;
   const currentJobs = jobs.slice(indexOfFirstJob, indexOfLastJob);
@@ -87,8 +71,6 @@ const EmployerJobs = () => {
                   <th>Exp Level</th>
                   <th>Posted on</th>
                   <th>Location</th>
-                  {/* <th>Application Deadline</th> */}
-                  {/* <th>Visible</th> */}
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -110,29 +92,7 @@ const EmployerJobs = () => {
                         })}
                       </td>
                       <td>{job.location}</td>
-                      {/* <td>
-                        {" "}
-                        {new Date(job.applicationDeadline).toLocaleDateString(
-                          "en-US",
-                          {
-                            day: "numeric",
-                            month: "short",
-                            year: "numeric",
-                          }
-                        )}
-                      </td> */}
-                      {/* <td>{job.applicants?.length || 0}</td> */}
-                      {/* <td>{noOfApplicants}</td> */}
-                      {/* <td>
-                      <label className="toggle-switch">
-                        <input
-                          type="checkbox"
-                          checked={visibleJobs[job._id] || false}
-                          onChange={() => toggleVisibility(job._id)}
-                        />
-                        <span className="slider"></span>
-                      </label>
-                    </td> */}
+                      
                       <td>
                         <button
                           className="action-btn view-btn"
@@ -140,7 +100,6 @@ const EmployerJobs = () => {
                         >
                           View
                         </button>
-                        {/* <button className="action-btn edit-btn">Edit</button> */}
                       </td>
                     </tr>
                   );

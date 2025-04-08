@@ -69,12 +69,6 @@ const EmployerApplications = ({ jobId }) => {
             {applications.map((app) => (
               <tr key={app._id}>
                 <td>
-                  {/* <Link
-                    to={`/applicant/${app.jobSeekerId._id}`}
-                    className="applicant-link"
-                  >
-                    {app.jobSeekerId.name}
-                  </Link> */}
                   <button
                     onClick={() => handleViewApplicant(app._id)}
                     className="name-applicant-link"
