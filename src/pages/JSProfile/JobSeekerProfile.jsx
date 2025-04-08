@@ -48,7 +48,7 @@ const JobSeekerProfile = () => {
       formData.append("resume", resumeFile);
 
       const response = await uploadResume(formData);
-      console.log("res...", response);
+      ("res...", response);
 
       if (!response.ok) {
         throw new Error("Failed to upload resume.");
@@ -135,7 +135,7 @@ const JobSeekerProfile = () => {
     setDateError("");
 
     if (newEducation.institution && newEducation.degree) {
-      // Validate dates
+      
       if (
         newEducation.startDate &&
         !validateDateFormat(newEducation.startDate)
@@ -207,7 +207,7 @@ const JobSeekerProfile = () => {
     setDateError("");
 
     if (newExperience.company && newExperience.position) {
-      // Validate dates
+      
       if (
         newExperience.startDate &&
         !validateDateFormat(newExperience.startDate)
@@ -319,7 +319,7 @@ const JobSeekerProfile = () => {
 
   useEffect(() => {
     if (user) {
-      console.log("User Data:", user);
+      ("User Data:", user);
       const data = user;
     
 
@@ -389,7 +389,7 @@ const JobSeekerProfile = () => {
                   alt="Profile Preview"
                   className="popup-profile-picture"
                   onLoad={(e) => {
-                    // Ensure image fits container
+                    
                     e.target.style.objectFit = "cover";
                     e.target.style.objectPosition = "center";
                   }}

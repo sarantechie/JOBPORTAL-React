@@ -24,7 +24,7 @@ function Login() {
   const handleSuccess = async (response) => {
     try {
       const decodedToken = jwtDecode(response.credential);
-      console.log("Google User Info:", decodedToken);
+      ("Google User Info:", decodedToken);
       await googleLogin(response.credential);
       navigate("/");
     } catch (error) {

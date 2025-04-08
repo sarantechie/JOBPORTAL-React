@@ -34,7 +34,7 @@ function JobDetails() {
     mutationFn: () => applyForJob(id, user._id),
     onSuccess: () => {
       alert("Applied..!");
-      queryClient.invalidateQueries(["applicationStatus", id, user?._id]); // Refetch application status
+      queryClient.invalidateQueries(["applicationStatus", id, user?._id]); 
     },
   });
 
@@ -187,31 +187,31 @@ function JobDetails() {
       {viewApplications && <EmployerApplications jobId={id} />}
     </div>
 
-    // <div className="job-details-container">
-    //   <h1 className="job-title">{job.title}</h1>
-    //   <p className="job-info"><strong>Description:</strong> {job.description}</p>
-    //   <p className="job-info"><strong>Location:</strong> {job.location}</p>
-    //   <p className="job-info"><strong>Salary:</strong> {job.salary}</p>
-    //   <p className="job-info"><strong>Skills Required:</strong> {job.skills}</p>
+    
+    
+    
+    
+    
+    
 
-    //   {user?.role !== "employer" && (
-    //     <button
-    //       onClick={applyJob}
-    //       className={`apply-button ${applied ? "disabled" : "active"}`}
-    //       disabled={applied}
-    //     >
-    //       {applied ? "Already Applied" : "Apply"}
-    //     </button>
-    //   )}
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
-    //   {user?.role === "employer" && user?._id === job?.employerId && (
-    //     <div>
-    //       <button onClick={() => setViewApplications(true)}>View Applications</button>
-    //     </div>
-    //   )}
+    
+    
+    
+    
+    
 
-    //   {ViewApplications && <EmployerApplications jobId={id} />}
-    // </div>
+    
+    
   );
 }
 

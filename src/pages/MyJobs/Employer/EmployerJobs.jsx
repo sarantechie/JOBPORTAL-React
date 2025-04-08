@@ -26,9 +26,9 @@ const EmployerJobs = () => {
       setLoading(true);
       const res = await fetchMyPostedJobs();
       setJobs(res.data);
-      console.log("Posted jobs:", res.data);
+      ("Posted jobs:", res.data);
 
-      // Initialize visibility state
+      
       // const visibilityState = {};
       // res.data.forEach(job => {
       //   visibilityState[job._id] = job.visible || false;

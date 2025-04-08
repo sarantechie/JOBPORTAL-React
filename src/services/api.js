@@ -137,6 +137,6 @@ export const me = async (token) => {
 
 export const getNotifications = async () => {
   const res = await api.get(`/notifications`);
-  console.log("Notifications", res);  
+  ("Notifications", res);  
   return res;
 };

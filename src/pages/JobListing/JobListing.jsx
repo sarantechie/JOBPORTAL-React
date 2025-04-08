@@ -1,4 +1,4 @@
-// JobListings.jsx
+
 import React, { useContext } from "react";
 import "./JobListings.css";
 import { Link } from "react-router-dom";

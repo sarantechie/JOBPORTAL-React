@@ -187,7 +187,7 @@ function PostJob() {
             Flexible Hours
           </label>
         </div> */}
-        {/* Skills Section */}
+        {}
         <div className="skills-container">
           {form.skills.map((skill, index) => (
             <div key={index} className="skill-input">

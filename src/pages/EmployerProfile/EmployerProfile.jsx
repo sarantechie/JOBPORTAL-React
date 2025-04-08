@@ -106,7 +106,7 @@ const EmployerProfile = () => {
                   alt="Logo Preview"
                   className="popup-profile-picture"
                   onLoad={(e) => {
-                    // Ensure image fits container
+                    
                     e.target.style.objectFit = "cover";
                     e.target.style.objectPosition = "center";
                   }}

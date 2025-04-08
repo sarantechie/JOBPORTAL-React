@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchJobApplications, updateApplicationStatus } from "../../services/api";
 import ApplicantDetails from "../../components/ApplicantDetails/ApplicantDetails";
-import "./ApplicationsDetailsPage.css"; // Assuming you have a CSS file for styling
+import "./ApplicationsDetailsPage.css"; 
 
 const ApplicantDetailsPage = () => {
   const { jobId ,applicationId} = useParams();
@@ -15,7 +15,7 @@ const ApplicantDetailsPage = () => {
       try {
         const res = await fetchJobApplications(jobId);
         setApplication(res.data[0]);
-        console.log("Application data:", res.data[0]);
+        ("Application data:", res.data[0]);
       } catch (error) {
         console.error("Error fetching application:", error);
       } finally {
@@ -26,11 +26,11 @@ const ApplicantDetailsPage = () => {
   }, [jobId]);
 
   const handleStatusUpdate = async (newStatus) => {
-    console.log("Updating status to:", newStatus);
+    ("Updating status to:", newStatus);
     try {
       await updateApplicationStatus(applicationId, newStatus);
       setApplication(prev => ({ ...prev, status: newStatus }));
-      // Optionally navigate back after update
+      
       // navigate(-1);
     } catch (error) {
       console.error("Error updating status:", error);

@@ -102,7 +102,7 @@
 } */
 
 
-/* PostJob.css */
+
 .postjob-container {
     max-width: 800px;
     margin: 2rem auto;
@@ -126,7 +126,7 @@
     gap: 1.25rem;
   }
   
-  /* Shared styles for all form elements */
+  
   .postjob-container input,
   .postjob-container select,
   .postjob-container textarea,
@@ -149,7 +149,7 @@
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
   }
   
-  /* Select dropdown styling */
+  
   .postjob-container select {
     appearance: none;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
@@ -161,7 +161,7 @@
     padding-right: 2.5rem;
   }
   
-  /* Checkbox styling */
+  
   .postjob-container label {
     display: flex;
     align-items: center;
@@ -193,7 +193,7 @@
     background: #e5e7eb;
   }
   
-  /* Skills section */
+  
   .skills-container {
     display: flex;
     flex-direction: column;
@@ -240,14 +240,14 @@
     background: #bfdbfe;
   }
   
-  /* Textarea styling */
+  
   .postjob-container textarea {
     min-height: 150px;
     resize: vertical;
     font-family: inherit;
   }
   
-  /* Submit button */
+  
   .postjob-container button[type="submit"] {
     background-color: #2563eb;
     color: white;
@@ -266,7 +266,7 @@
     cursor: not-allowed;
   }
   
-  /* Responsive adjustments */
+  
   @media (max-width: 768px) {
     .postjob-container {
       padding: 1.5rem;
@@ -280,13 +280,13 @@
     }
   }
 
-  /* Date input styling */
+  
 .date-input {
     position: relative;
-    color: #6b7280; /* Gray placeholder color */
+    color: #6b7280; 
   }
   
-  /* Show placeholder text when empty */
+  
   .date-input:not(:focus):invalid::-webkit-datetime-edit {
     color: transparent;
   }
@@ -301,12 +301,12 @@
     pointer-events: none;
   }
     
-  /* Focus state */
+  
   .date-input:focus {
-    color: #1f2937; /* Dark text when selected */
+    color: #1f2937; 
   }
 
-  /* Range input styling */
+  
 .range-group {
     margin-bottom: 1rem;
   }
@@ -344,7 +344,7 @@
     font-size: 0.9rem;
   }
   
-  /* Responsive adjustments */
+  
   @media (max-width: 480px) {
     .range-inputs {
       flex-direction: column;

@@ -1,4 +1,4 @@
-/* applicantDetailsPage.css */
+
 .applicant-details-page {
     max-width: 1200px;
     margin: 0 auto;
@@ -19,7 +19,7 @@
     text-decoration: underline;
   }
 
-  /* Loading State */
+  
   .loading-spinner {
     text-align: center;
     padding: 2rem;

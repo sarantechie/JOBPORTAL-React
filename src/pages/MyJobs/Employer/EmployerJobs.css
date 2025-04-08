@@ -33,7 +33,7 @@
     background-color: #1d4ed8;
   }
 
-  /* Loading State */
+  
   .loading-spinner {
     text-align: center;
     padding: 2rem;
@@ -192,7 +192,7 @@
     border-color: #2563eb;
   }
   
-  /* Responsive styles */
+  
   @media (max-width: 768px) {
     .header-section {
       flex-direction: column;

@@ -19,11 +19,11 @@ function Navbar() {
   };
 
   const handleNotificationClick = async (notification) => {
-    console.log("Notification clicked", notification);
+    ("Notification clicked", notification);
   };
 
   const markAllAsRead = async () => {
-    console.log("Marking all as read");
+    ("Marking all as read");
   };
   const navigateToLogin = () => {
     navigate("/login");
@@ -151,7 +151,7 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Overlay when drawer is open */}
+      {}
       {showNotifications && (
         <div className="drawer-overlay" onClick={toggleNotifications}></div>
       )}

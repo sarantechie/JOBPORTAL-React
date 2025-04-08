@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { fetchApplicantDetails } from "../../services/api";
 import "./ApplicantDetails.css";
 
@@ -13,7 +12,7 @@ const ApplicantDetails = ({ application, onStatusUpdate }) => {
     const getApplicantDetails = async () => {
       try {
         const res = await fetchApplicantDetails(jobSeekerId._id);
-        console.log("Applicant details:", res.data);
+        ("Applicant details:", res.data);
         setApplicant(res.data);
       } catch (error) {
         console.error("Error fetching applicant details:", error);
@@ -95,7 +94,7 @@ const ApplicantDetails = ({ application, onStatusUpdate }) => {
           )}
         </div>
       </div>
-      {/* Skills */}
+      {}
       {applicant.skills?.length > 0 && (
         <div className="info-section">
           <h3>Skills</h3>
@@ -135,7 +134,7 @@ const ApplicantDetails = ({ application, onStatusUpdate }) => {
         )}
       </div>
 
-      {/* Experience */}
+      {}
       <div className="info-section">
         <h3>Work Experience</h3>
         {applicant.experience?.length > 0 ? (
@@ -163,7 +162,7 @@ const ApplicantDetails = ({ application, onStatusUpdate }) => {
         )}
       </div>
 
-      {/* Resume */}
+      {}
       {/* {applicant.resume && (
         <div className="info-section">
           <h3>Resume</h3>

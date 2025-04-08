@@ -1,4 +1,4 @@
-/* Main Container */
+
 .applicant-details-container {
     max-width: 900px;
     margin: 2rem auto;
@@ -11,7 +11,6 @@
     line-height: 1.6;
   }
   
-  /* Header Section */
   .applicant-header {
     display: flex;
     justify-content: space-between;
@@ -35,7 +34,6 @@
     border: 3px solid #ebf4ff;
   }
   
-  /* Status Badge */
   .status-badge {
     display: inline-block;
     padding: 0.35rem 1rem;
@@ -61,7 +59,6 @@
     color: #991b1b;
   }
   
-  /* Status Actions */
   .status-actions {
     display: flex;
     gap: 1rem;
@@ -96,7 +93,6 @@
     color: white;
   }
   
-  /* Info Sections */
   .info-section {
     margin-bottom: 2rem;
   }
@@ -109,7 +105,6 @@
     border-bottom: 1px solid #e2e8f0;
   }
   
-  /* Info Grid */
   .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -133,7 +128,6 @@
     color: #2d3748;
   }
   
-  /* Skills */
   .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -149,7 +143,7 @@
     font-weight: 500;
   }
   
-  /* Education & Experience */
+  
   .education-container,
   .experience-container {
     display: flex;
@@ -189,7 +183,7 @@
     font-size: 0.9375rem;
   }
   
-  /* Resume Link */
+  
   .resume-link {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -205,13 +199,13 @@
     background-color: #1d4ed8;
   }
   
-  /* Empty States */
+  
   .no-data {
     color: #718096;
     font-style: italic;
   }
   
-  /* Loading State */
+  
   .loading-spinner {
     text-align: center;
     padding: 2rem;
@@ -232,14 +226,14 @@
     100% { transform: rotate(360deg); }
   }
   
-  /* Not Found */
+  
   .not-found {
     text-align: center;
     padding: 2rem;
     color: #718096;
   }
   
-  /* Responsive Design */
+  
   @media (max-width: 768px) {
     .applicant-details-container {
       padding: 1.5rem;

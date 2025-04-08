@@ -1,4 +1,4 @@
-/* Main Container */
+
 .jobseeker-jobs-container {
     max-width: 1200px;
     margin: 2rem auto;
@@ -6,7 +6,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
-  /* Header Section */
+  
   .header-section {
     margin-bottom: 2rem;
   }
@@ -22,7 +22,7 @@
     font-size: 1rem;
   }
   
-  /* Empty State */
+  
   .empty-state {
     text-align: center;
     padding: 3rem;
@@ -35,14 +35,14 @@
     margin-bottom: 1.5rem;
   }
   
-  /* Table Container */
+  
   .table-container {
     overflow-x: auto;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
   }
   
-  /* Applications Table */
+  
   .applications-table {
     width: 100%;
     border-collapse: collapse;
@@ -74,7 +74,7 @@
     background-color: #f8fafc;
   }
   
-  /* Job Title Link */
+  
   .job-title-link {
     background: none;
     border: none;
@@ -89,7 +89,7 @@
     text-decoration: underline;
   }
   
-  /* Status Badges */
+  
   .status-badge {
     display: inline-block;
     padding: 0.35rem 0.75rem;
@@ -119,7 +119,7 @@
     color: #4a5568;
   }
   
-  /* Action Buttons */
+  
   .action-buttons {
     display: flex;
     gap: 0.5rem;
@@ -154,7 +154,7 @@
     background-color: #fecaca;
   }
   
-  /* Loading State */
+  
   .loading-spinner {
     text-align: center;
     padding: 2rem;
@@ -175,7 +175,7 @@
     100% { transform: rotate(360deg); }
   }
   
-  /* Responsive Design */
+  
   @media (max-width: 768px) {
     .jobseeker-jobs-container {
       padding: 1.5rem;
